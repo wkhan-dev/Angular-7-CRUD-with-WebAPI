@@ -1,0 +1,30 @@
+<form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+  <input type="hidden" name="Id"  #Id="ngModel" [(ngModel)]= "service.formData.Id" class="form-control">
+  <div class="form-group">
+    <label>First Name</label>
+    <input name="FirstName" #FirstName="ngModel" [(ngModel)]= "service.formData.FirstName" required class="form-control">
+    <div class="validation-error" *ngIf="FirstName.invalid && FirstName.touched">This field is required</div>
+  </div>
+
+  <div class="form-group">
+      <label>Last Name</label>
+      <input name="LastName" #LastName="ngModel" [(ngModel)]= "service.formData.LastName" required class="form-control">
+      <div class="validation-error" *ngIf="FirstName.invalid && FirstName.touched">This field is required</div>
+    </div>
+
+  <div class="form-row">  
+      <div class="form-group col-md-6">
+          <label>Gender</label>
+          <input name="Gender" #Gender="ngModel" [(ngModel)]= "service.formData.Gender" class="form-control">
+      </div>
+    
+      <div class="form-group col-md-6">
+          <label>Salary</label>
+          <input name="Salary" #Salary="ngModel" [(ngModel)]= "service.formData.Salary" class="form-control">
+      </div>
+  </div>
+  <div class="form-group">
+      <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block">Submit</button>
+    </div>
+
+</form>  
